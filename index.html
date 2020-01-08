@@ -1,0 +1,70 @@
+<!Doctype HTML>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Stopwatch App</title>
+		<meta name="author" content="Open Stopwatch Author <souravgoswami@protonmail.com>">
+		<meta name="robots" content="all">
+		<meta name="robots" content="index">
+		<meta name="robots" content="follow">
+		<meta name="keywords" content="stopwatch" lang="en-GB">
+		<meta name="description" content="A simple stopwatch application">
+
+		<meta property="og:title" content="A simple stopwatch application">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="http://openstopwatch.rf.gd">
+		<meta property="og:image" itemprop="image" content="http://openstopwatch.rf.gd/assets/img/og.png">
+		<meta property="og:description" content="A simple stopwatch application">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<script src="src/jquery-3.4.1.min.js"></script>
+		<script src="src/script.js"></script>
+		<link rel="stylesheet" href="src/styling.css">
+		<link rel="shortcut icon" href="assets/img/favicon.png">
+	</head>
+
+	<body>
+		<a href="https://github.com/Souravgoswami/browser-stopwatch/" id="github" target="_blank">
+			<img id="github-img" src="assets/img/github.svg">
+			<span id="fork">Fork Me!</span>
+		</a>
+
+		<div class="container-fluid">
+			<!-- Title -->
+			<div id="header">Stopwatch</div>
+			<div id="header1">Stopwatch</div>
+
+			<!-- Lap Time -->
+			<div id="lap"><span id="lap-minute">00</span>:<span id="lap-second">00</span>:<span id="lap-centisecond">00</span></div>
+
+			<!-- Time -->
+			<div id="time"><span id="time-minute">00</span>:<span id="time-second">00</span>:<span id="time-centisecond">00</span></div>
+
+			<!-- Controls -->
+			<div id="controls-container" class="row">
+				<div style="padding-right: 2vw">
+					<div id="start-button" class="control">Start</div>
+					<div id="stop-button" class="control">Stop</div>
+					<div id="resume-button" class="control">Resume</div>
+				</div>
+
+				<div>
+					<div id="lap-button" class="control">Lap</div>
+					<div id="reset-button" class="control">Reset</div>
+				</div>
+			</div>
+
+			<!-- Lapse -->
+			<div id="lapses"></div>
+
+			<script type="text/javascript">
+				$('.control').hide()
+				var f = document.getElementById('fork'), g = document.getElementById('github')
+				g.onmouseover = () => { f.style.display = 'block' }
+				g.onmouseout = () => { f.style.display = 'none' }
+			</script>
+		</div>
+	</body>
+</html>

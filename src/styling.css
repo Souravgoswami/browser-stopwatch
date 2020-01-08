@@ -1,0 +1,175 @@
+@font-face {
+	font-family: 'Iceberg' ;
+	font-style: normal ;
+	font-display: swap ;
+	font-weight: 400 ;
+	src: local('Iceberg'), local('Iceberg-Regular'), url('../assets/fonts/Iceberg.woff2') format('woff2') ;
+}
+
+body {
+	font-family: 'Iceberg', serif ;
+	background: #000 url('../assets/img/bg.jpg') no-repeat center fixed ;
+	background-size: cover ;
+	color: #fff ;
+	text-align: center ;
+	margin: 5vh 10vw ;
+	user-select: none ;
+}
+
+#github-img {
+	width: calc(3vw + 3vh) ;
+	transition: all 0.25s ease ;
+}
+
+#github {
+	position: absolute ;
+	top: 0px ;
+	font-size: calc(0.75vw + 0.75vh) ;
+	color: #fff ;
+	text-decoration: none ;
+	left: 100% ;
+	margin-left: calc(0px - 3vw - 3vh) ;
+	filter: drop-shadow(0px 0px 0px #000) ;
+	transition: all 0.25s ease ;
+}
+
+#fork {
+	display: none ;
+	background: linear-gradient(45deg, #ff0, #f55, #f5f, #55f, #55f, #f5f, #f55, #ff0) ;
+	-webkit-background-clip: text ;
+	-webkit-text-fill-color: transparent ;
+	background-size: 400% ;
+	animation: gFork 3s linear infinite ;
+}
+
+@keyframes gFork {
+	from { background-position: 0 0 }
+	to { background-position: 400% }
+}
+
+#github:hover {
+	filter: drop-shadow(0px 0px 4px #fa0) ;
+}
+
+#github:active {
+	filter: drop-shadow(0px 0px 4px #8f0) ;
+	animation: githubAnim 0.125s ease ;
+}
+
+#github:visited {
+	filter: drop-shadow(0px 0px 4px #faf) ;
+}
+
+@keyframes githubAnim {
+	from { transform: scaleX(-1) }
+	to { transform: scaleX(1) }
+}
+
+#header, #header1 {
+	font-size: calc(3.5vw + 3.5vh) ;
+	display: inline ;
+	transition: all 0.25s ease ;
+	background: linear-gradient(45deg, #ff0, #f55, #f5f, #55f, #55f, #f5f, #f55, #ff0) ;
+	-webkit-background-clip: text ;
+	-webkit-text-fill-color: transparent ;
+	background-size: 400% ;
+	animation: myAnim1 7.5s linear infinite ;
+}
+
+#header {
+	position: absolute ;
+	filter: blur(4px) ;
+}
+
+@keyframes myAnim1 {
+	from { background-position: 400% }
+	to { background-position: 0 0 }
+}
+
+#lap {
+	color: #fff ;
+	font-family: 'Iceberg', serif ;
+	font-size: calc(2vw + 2vh);
+	text-align: right ;
+	transition: all 0.2s ease ;
+	text-shadow: 0px 0px 8px #3eb ;
+	user-select: text ;
+}
+
+#time {
+	font-size: calc(5vw + 5vh) ;
+	user-select: text ;
+	text-shadow: 0px 0px 8px #3eb ;
+}
+
+/* Buttons */
+#controls-container {
+	display: flex ;
+	align-items: center ;
+	justify-content: center ;
+}
+
+.control {
+	height: calc(5vw + 5vh) ;
+	width: calc(5vw + 5vh) ;
+	background-color: #fa0 ;
+	border-radius: 100% ;
+	display: grid ;
+	align-items: center ;
+	font-size: calc(1.5vw + 1.5vh) ;
+	cursor: pointer ;
+	text-shadow: 0px 0px 4px #fcf ;
+	transition: all 0.25s ease ;
+	animation: myAnim 0.5s ease ;
+}
+
+@keyframes myAnim {
+	from { filter: blur(4px) }
+	to { filter: blur(0px) }
+}
+
+.control:hover {
+	background-color: #fff ;
+	color: #fa0 ;
+}
+
+.control:active {
+	background-color: #0af ;
+	color: #fff ;
+	text-shadow: 0px 0px 4px #fff ;
+	transition: all 0s ease ;
+}
+
+/* Lapses */
+#lapses {
+	background-color: transparent ;
+	max-height: 32vh ;
+	overflow: auto ;
+	margin-top: calc(1vw + 1vh) ;
+	user-select: text ;
+}
+
+.lap {
+	height: calc(3vw + 3vh) ;
+	border-bottom: 1px solid #fff ;
+}
+
+.laptime-title {
+	float: left ;
+	font-size: calc(1.75vw + 1.75vh) ;
+	text-shadow: 0px 0px 8px #f9f ;
+}
+
+.system-time {
+	font-size: calc(1vw + 1vh) ;
+	margin-left: 10px ;
+	float: left ;
+	line-height: calc(2.75vw + 2.75vh) ;
+	text-shadow: 0px 0px 8px #f9f ;
+}
+
+.laptime {
+	font-size: calc(1.25vw + 1.25vh) ;
+	float: right ;
+	text-shadow: 0px 0px 8px #f9f ;
+}
