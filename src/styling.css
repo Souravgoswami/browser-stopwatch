@@ -6,6 +6,14 @@
 	src: local('Iceberg'), local('Iceberg-Regular'), url('../assets/fonts/Iceberg.woff2') format('woff2') ;
 }
 
+@font-face {
+	font-family: 'Unica One' ;
+	font-style: normal ;
+	font-display: swap ;
+	font-weight: 400 ;
+	src: local('Unica One'), local('UnicaOne-Regular'), url('../assets/fonts/UnicaOne.woff2') format('woff2') ;
+}
+
 ::selection {
 	background-color: rgba(30, 180, 180, 0.5) ;
 	color: #fd0 ;
@@ -104,9 +112,9 @@ body:before {
 }
 
 #lap {
-	color: #fff ;
-	font-family: 'Iceberg', serif ;
+	font-family: 'Unica One', serif ;
 	font-size: calc(2vw + 2vh);
+	color: #fff ;
 	text-align: right ;
 	transition: all 0.2s ease ;
 	text-shadow: 0px 0px 8px #3eb ;
@@ -114,12 +122,28 @@ body:before {
 }
 
 #time {
+	font-family: 'Unica One', serif ;
 	font-size: calc(5vw + 5vh) ;
 	user-select: text ;
 	text-shadow: 0px 0px 8px #3eb ;
 }
 
-/* Buttons */
+.sep {
+	display: inline ;
+	opacity: 1 ;
+	animation: blinkAnim 1s ease infinite ;
+}
+
+@keyframes blinkAnim {
+	0%, 100% {
+		opacity: 1 ;
+	}
+
+	50% {
+		opacity: 0 ;
+	}
+}
+
 #controls-container {
 	display: flex ;
 	align-items: center ;
@@ -157,7 +181,6 @@ body:before {
 	transition: all 0s ease ;
 }
 
-/* Lapses */
 #lapses {
 	background-color: transparent ;
 	max-height: 32vh ;
