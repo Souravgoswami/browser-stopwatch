@@ -7,14 +7,17 @@
 }
 
 ::selection {
-	background-color: rgba(30, 180, 180, 0.5)
+	background-color: rgba(30, 180, 180, 0.5) ;
+	color: #fd0 ;
+	text-shadow: 0px 0px 8px #fff ;
+	outline: #fff dashed ;
 }
 
 body {
 	font-family: 'Iceberg', serif ;
 	color: #fff ;
 	text-align: center ;
-	margin: 5vh 10vw ;
+	margin: 10vh 10vw ;
 	user-select: none ;
 }
 
@@ -49,7 +52,7 @@ body:before {
 
 #fork {
 	display: none ;
-	background: linear-gradient(45deg, #ff0, #f55, #f5f, #55f, #55f, #f5f, #f55, #ff0) ;
+	background: linear-gradient(45deg, #ff0, #3eb, #f55, #f5f, #55f, #55f, #f5f, #f55, #ff0) ;
 	-webkit-background-clip: text ;
 	-webkit-text-fill-color: transparent ;
 	background-size: 400% ;
@@ -83,7 +86,7 @@ body:before {
 	font-size: calc(3.5vw + 3.5vh) ;
 	display: inline ;
 	transition: all 0.25s ease ;
-	background: linear-gradient(45deg, #ff0, #f55, #f5f, #55f, #55f, #f5f, #f55, #ff0) ;
+	background: linear-gradient(45deg, #ff0, #f55, #0eb, #f0f, #55f, #55f, #f5f, #3eb, #f55, #ff0) ;
 	-webkit-background-clip: text ;
 	-webkit-text-fill-color: transparent ;
 	background-size: 400% ;
@@ -175,15 +178,16 @@ body:before {
 }
 
 .system-time {
-	font-size: calc(1vw + 1vh) ;
-	margin-left: 10px ;
+	font-size: calc(0.75vw + 0.75vh) ;
+	margin-left: calc(0.75vw + 0.75vh) ;
 	float: left ;
-	line-height: calc(2.75vw + 2.75vh) ;
+	line-height: calc(2.5vw + 2.5vh) ;
 	text-shadow: 0px 0px 8px #f9f ;
 }
 
 .laptime {
-	font-size: calc(1.25vw + 1.25vh) ;
+	font-size: calc(1.5vw + 1.5vh) ;
+	line-height: calc(2.5vw + 2.5vh) ;
 	float: right ;
-	text-shadow: 0px 0px 8px #f9f ;
+	text-shadow: 0px 0px 4px #f9f ;
 }

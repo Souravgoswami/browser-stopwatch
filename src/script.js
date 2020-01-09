@@ -1,7 +1,7 @@
 $(() => {
 	var mode = timeCounter = lapCounter = lapNumber = 0
 	var timeDate = stoppedDate = lapDate = new Date()
-	var lapMinutes, lapSeconds, lapCentiseconds, action
+	var lapMinutes, lapSeconds, lapMilliseconds, action
 
 	hideShowButtons('#start-button', '#lap-button')
 	$('#start-button').click(() => {
@@ -57,19 +57,19 @@ $(() => {
 
 			lapMinutes = Math.floor(lapCounter / 60000)
 			lapSeconds = Math.floor(lapCounter % 60000 / 1000)
-			lapCentiseconds = lapCounter % 60000 % 1000
+			lapMilliseconds = lapCounter % 60000 % 1000
 
 			$('#lap-minute').text(lapMinutes < 10 ? '0' + lapMinutes : lapMinutes)
 			$('#lap-second').text(lapSeconds < 10 ? '0' + lapSeconds : lapSeconds)
-			$('#lap-centisecond').text(fmt2(lapCentiseconds))
+			$('#lap-millisecond').text(fmt2(lapMilliseconds))
 
 			let timeMinutes = Math.floor(timeCounter  / 60000)
 			let timeSeconds = Math.floor(timeCounter % 60000 / 1000)
-			let timeCentiseconds = timeCounter % 60000 % 1000
+			let timeMilliseconds = timeCounter % 60000 % 1000
 
 			$('#time-minute').text(timeMinutes < 10 ? '0' + timeMinutes : timeMinutes)
 			$('#time-second').text(timeSeconds < 10 ? '0' + timeSeconds : timeSeconds)
-			$('#time-centisecond').text(fmt2(timeCentiseconds))
+			$('#time-millisecond').text(fmt2(timeMilliseconds))
 		}, 10)
 	}
 
@@ -86,7 +86,7 @@ $(() => {
 			'<div class="laptime">' +
 				'<span>' + fmt(lapMinutes) + '</span>:' +
 				'<span>' + fmt(lapSeconds) + '</span>:' +
-				'<span>' + fmt(lapCentiseconds) + '</span>' +
+				'<span>' + fmt(lapMilliseconds) + '</span>' +
 			'</div></div><br>'
 
 		$(myLapDetails).prependTo('#lapses')
