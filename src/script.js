@@ -5,7 +5,8 @@ var lapMinutes, lapSeconds, lapMilliseconds, action
 hideShowButtons('start-button', 'lap-button')
 
 for(let i of document.getElementsByClassName('sep')) i.style.visibility = 'hidden'
-for(let i of document.getElementsByClassName('sep3')) i.style.visibility = 'visible'
+for(let i of document.getElementsByClassName('sep2')) i.style.visibility = 'visible'
+for(let i of document.getElementsByClassName('sep3')) i.style.display = 'inline'
 
 document.getElementById('start-button').onclick = () => {
 	mode = 1
@@ -20,7 +21,8 @@ document.getElementById('stop-button').onclick = () => {
 	clearInterval(action)
 
 	for(let i of document.getElementsByClassName('sep')) i.style.visibility = 'hidden'
-	for(let i of document.getElementsByClassName('sep3')) i.style.visibility = 'visible'
+	for(let i of document.getElementsByClassName('sep2')) i.style.visibility = 'visible'
+	for(let i of document.getElementsByClassName('sep3')) i.style.display = 'inline'
 
 	stoppedDate = new Date()
 }
@@ -37,7 +39,19 @@ document.getElementById('reset-button').onclick = () => { location.reload() }
 document.getElementById('lap-button').onclick = () => {
 	if(mode) {
 		clearInterval(action)
-		addLap()
+		fmt = arg => arg < 10 ? '0' + arg : arg
+
+		let date = new Date()
+		let lapses = document.getElementById('lapses')
+		let h = fmt(date.getHours()), m = fmt(date.getMinutes()), s = fmt(date.getSeconds())
+		let sH = fmt(lapDate.getHours()), sM = fmt(lapDate.getMinutes()), sS = fmt(lapDate.getSeconds())
+		let mS = fmt2(date.getMilliseconds()), sMS = fmt2(lapDate.getMilliseconds())
+
+		lapses.innerHTML = `<div class="lap"><div class="laptime-title">Lap${++lapNumber}</div>` +
+			`<div class="system-time">(${sH}:${sM}:${sS}:${sMS} - ${h}:${m}:${s}:${mS})</div>` +
+			'<div class="laptime">' + '<span>' + fmt(lapMinutes) + '</span>:' + '<span>' + fmt(lapSeconds) +
+			'</span>:' + '<span>' + fmt2(lapMilliseconds) + '</span>' + '</div></div><br>' + lapses.innerHTML
+
 		lapDate = new Date()
 		startAction()
 	}
@@ -56,7 +70,8 @@ function fmt2(arg, len = 3) {
 
 function startAction() {
 	for(let i of document.getElementsByClassName('sep')) i.style.visibility = 'visible'
-	for(let i of document.getElementsByClassName('sep3')) i.style.visibility = 'hidden'
+	for(let i of document.getElementsByClassName('sep2')) i.style.visibility = 'hidden'
+	for(let i of document.getElementsByClassName('sep3')) i.style.display = 'none'
 
 	action = setInterval(() => {
 		let currentDate = new Date()
@@ -80,18 +95,4 @@ function startAction() {
 		document.getElementById('time-second').innerHTML = timeSeconds < 10 ? '0' + timeSeconds : timeSeconds
 		document.getElementById('time-millisecond').innerHTML = fmt2(timeMilliseconds)
 	}, 10)
-}
-
-function addLap() {
-	fmt = arg => arg < 10 ? '0' + arg : arg
-
-	let date = new Date(), lapses = document.getElementById('lapses')
-	let h = fmt(date.getHours()), m = fmt(date.getMinutes()), s = fmt(date.getSeconds())
-	let sH = fmt(lapDate.getHours()), sM = fmt(lapDate.getMinutes()), sS = fmt(lapDate.getSeconds())
-	let mS = fmt2(date.getMilliseconds()), sMS = fmt2(lapDate.getMilliseconds())
-
-	lapses.innerHTML = `<div class="lap"><div class="laptime-title">Lap${++lapNumber}</div>` +
-		`<div class="system-time">(${sH}:${sM}:${sS}:${sMS} - ${h}:${m}:${s}:${mS})</div>` +
-		'<div class="laptime">' + '<span>' + fmt(lapMinutes) + '</span>:' + '<span>' + fmt(lapSeconds) +
-		'</span>:' + '<span>' + fmt(lapMilliseconds) + '</span>' + '</div></div><br>' + lapses.innerHTML
 }

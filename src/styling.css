@@ -128,7 +128,7 @@ body:before {
 	text-shadow: 0px 0px 8px #3eb ;
 }
 
-.sep, sep2 {
+.sep {
 	display: inline ;
 	opacity: 1 ;
 	animation: blinkAnim 1s ease infinite ;
@@ -136,6 +136,7 @@ body:before {
 
 .sep2 {
 	color: #fff ;
+	display: inline ;
 	position: absolute ;
 	z-index: -1 ;
 	animation: blurAnim 1s ease infinite ;
@@ -144,6 +145,8 @@ body:before {
 .sep3 {
 	display: inline ;
 	position: absolute ;
+	opacity: 1 ;
+	animation: fadeAnim 1s ease ;
 }
 
 @keyframes blinkAnim {
@@ -154,6 +157,11 @@ body:before {
 @keyframes blurAnim {
 	0%, 100% { filter: blur(calc(0.37vw + 0.37vh)) }
 	50% { filter: blur(0px) }
+}
+
+@keyframes fadeAnim {
+	from { opacity: 0 }
+	to { opacity: 1 }
 }
 
 #controls-container {
@@ -213,7 +221,7 @@ body:before {
 }
 
 .system-time {
-	font-size: calc(0.75vw + 0.75vh) ;
+	font-size: calc(1vw + 1vh) ;
 	margin-left: calc(0.75vw + 0.75vh) ;
 	float: left ;
 	line-height: calc(2.5vw + 2.5vh) ;
