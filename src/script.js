@@ -62,7 +62,7 @@ function startAction() {
 		document.getElementById('lap-second').innerHTML = lapSeconds < 10 ? '0' + lapSeconds : lapSeconds
 		document.getElementById('lap-millisecond').innerHTML = fmt2(lapMilliseconds)
 
-		let timeMinutes = Math.floor(timeCounter  / 60000)
+		let timeMinutes = Math.floor(timeCounter / 60000)
 		let timeSeconds = Math.floor(timeCounter % 60000 / 1000)
 		let timeMilliseconds = timeCounter % 60000 % 1000
 
