@@ -128,20 +128,32 @@ body:before {
 	text-shadow: 0px 0px 8px #3eb ;
 }
 
-.sep {
+.sep, sep2 {
 	display: inline ;
 	opacity: 1 ;
 	animation: blinkAnim 1s ease infinite ;
 }
 
-@keyframes blinkAnim {
-	0%, 100% {
-		opacity: 1 ;
-	}
+.sep2 {
+	color: #fff ;
+	position: absolute ;
+	z-index: -1 ;
+	animation: blurAnim 1s ease infinite ;
+}
 
-	50% {
-		opacity: 0 ;
-	}
+.sep3 {
+	display: inline ;
+	position: absolute ;
+}
+
+@keyframes blinkAnim {
+	0%, 100% { opacity: 1 }
+	50% { opacity: 0 }
+}
+
+@keyframes blurAnim {
+	0%, 100% { filter: blur(calc(0.37vw + 0.37vh)) }
+	50% { filter: blur(0px) }
 }
 
 #controls-container {

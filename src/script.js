@@ -4,6 +4,9 @@ var lapMinutes, lapSeconds, lapMilliseconds, action
 
 hideShowButtons('start-button', 'lap-button')
 
+for(let i of document.getElementsByClassName('sep')) i.style.visibility = 'hidden'
+for(let i of document.getElementsByClassName('sep3')) i.style.visibility = 'visible'
+
 document.getElementById('start-button').onclick = () => {
 	mode = 1
 	timeDate = new Date()
@@ -15,6 +18,10 @@ document.getElementById('start-button').onclick = () => {
 document.getElementById('stop-button').onclick = () => {
 	hideShowButtons('resume-button', 'reset-button')
 	clearInterval(action)
+
+	for(let i of document.getElementsByClassName('sep')) i.style.visibility = 'hidden'
+	for(let i of document.getElementsByClassName('sep3')) i.style.visibility = 'visible'
+
 	stoppedDate = new Date()
 }
 
@@ -38,8 +45,8 @@ document.getElementById('lap-button').onclick = () => {
 
 // Functions
 function hideShowButtons(...el) {
-	for(i of document.getElementsByClassName('control')) i.style.display = 'none'
-	for(i of el) document.getElementById(i).style.display = 'grid'
+	for(let i of document.getElementsByClassName('control')) i.style.display = 'none'
+	for(let i of el) document.getElementById(i).style.display = 'grid'
 }
 
 function fmt2(arg, len = 3) {
@@ -48,6 +55,9 @@ function fmt2(arg, len = 3) {
 }
 
 function startAction() {
+	for(let i of document.getElementsByClassName('sep')) i.style.visibility = 'visible'
+	for(let i of document.getElementsByClassName('sep3')) i.style.visibility = 'hidden'
+
 	action = setInterval(() => {
 		let currentDate = new Date()
 
