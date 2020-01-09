@@ -19,8 +19,6 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<script src="src/jquery-3.4.1.min.js"></script>
-		<script src="src/script.js"></script>
 		<link rel="stylesheet" href="src/styling.css">
 		<link rel="shortcut icon" href="assets/img/favicon.png">
 	</head>
@@ -60,11 +58,14 @@
 			<div id="lapses"></div>
 
 			<script type="text/javascript">
-				$('.control').hide()
+				for (i of document.getElementsByClassName('control')) i.style.display = 'none'
+
 				var f = document.getElementById('fork'), g = document.getElementById('github')
 				g.onmouseover = () => { f.style.display = 'block' }
 				g.onmouseout = () => { f.style.display = 'none' }
 			</script>
+
+			<script src="src/script.js"></script>
 		</div>
 	</body>
 </html>
