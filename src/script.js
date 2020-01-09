@@ -1,7 +1,6 @@
 $(() => {
 	var mode = timeCounter = lapCounter = lapNumber = 0
-	var timeDate = stoppedDate = new Date()
-	lapDate = new Date()
+	var timeDate = stoppedDate = lapDate = new Date()
 	var lapMinutes, lapSeconds, lapCentiseconds, action
 
 	hideShowButtons('#start-button', '#lap-button')
